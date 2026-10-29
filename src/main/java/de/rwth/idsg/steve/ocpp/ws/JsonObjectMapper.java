@@ -63,6 +63,10 @@ public enum JsonObjectMapper {
             .addModule(new Ocpp12JacksonModule())
             .addModule(new Ocpp15JacksonModule())
             .addModule(new Ocpp16JacksonModule())
+            .addMixIn(ocpp.cs._2015._10.DataTransferRequest.class, de.rwth.idsg.steve.ocpp.ws.custom.DataTransferMixin.class)
+            .addMixIn(ocpp.cs._2015._10.DataTransferResponse.class, de.rwth.idsg.steve.ocpp.ws.custom.DataTransferMixin.class)
+            .addMixIn(ocpp.cp._2015._10.DataTransferRequest.class, de.rwth.idsg.steve.ocpp.ws.custom.DataTransferMixin.class)
+            .addMixIn(ocpp.cp._2015._10.DataTransferResponse.class, de.rwth.idsg.steve.ocpp.ws.custom.DataTransferMixin.class)
             .addModule(new JodaModule())
             // https://github.com/steve-community/ocpp-jaxb/pull/25
             .addModule(BeanValidationModule.forReading(null))

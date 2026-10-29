@@ -414,6 +414,20 @@ public class ChargePointServiceClient {
         return taskStore.add(task);
     }
 
+    /** PnC owns bounded job history; do not retain certificate payloads in the generic task store. */
+    @SafeVarargs
+    public final void pncDataTransfer(DataTransferParams params,
+                                      OcppCallback<ocpp.cp._2015._10.DataTransferResponse>... callbacks) {
+        prepareAndCheck(params);
+        DataTransferTask task = new DataTransferTask(params);
+        for (var callback : callbacks) {
+            task.addCallback(callback);
+        }
+        BackgroundService.with(taskExecutor)
+            .forEach(task.getParams().getChargePointSelectList())
+            .execute(c -> invoker.dataTransfer(c, task));
+    }
+
     @SafeVarargs
     public final int getConfiguration(GetConfigurationParams params,
                                       OcppCallback<GetConfigurationTask.ConfigurationKeyValues>... callbacks) {

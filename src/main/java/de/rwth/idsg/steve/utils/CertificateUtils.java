@@ -140,7 +140,8 @@ public class CertificateUtils {
                 return converter.getPrivateKey(privateKeyInfo);
             }
             if (parsedObj instanceof PEMKeyPair keyPair) {
-                return converter.getKeyPair(keyPair).getPrivate();
+                // SEC1 EC private keys need not carry an optional public-key field.
+                return converter.getPrivateKey(keyPair.getPrivateKeyInfo());
             }
             if (parsedObj instanceof PKCS8EncryptedPrivateKeyInfo pkcs8) {
                 var decryptor = new JceOpenSSLPKCS8DecryptorProviderBuilder()
@@ -154,7 +155,7 @@ public class CertificateUtils {
                     .setProvider(PROVIDER_NAME)
                     .build(passwordAsChar);
 
-                return converter.getKeyPair(encryptedKeyPair.decryptKeyPair(decryptor)).getPrivate();
+                return converter.getPrivateKey(encryptedKeyPair.decryptKeyPair(decryptor).getPrivateKeyInfo());
             }
 
             throw new IllegalArgumentException("Unsupported private key PEM format: " + parsedObj.getClass().getName());

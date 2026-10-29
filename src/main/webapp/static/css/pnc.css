@@ -1,0 +1,29 @@
+.pnc-page h2 { margin-top: 0; font-family: DroidSerif, serif; font-weight: normal; }
+.pnc-panel { min-height: 500px; }
+.pnc-panel [hidden] { display: none !important; }
+.pnc-panel table.userInput td:first-child { width: 29%; vertical-align: top; padding-top: 10px; }
+.pnc-panel table.userInput td:nth-child(2) { padding: 5px 10px; }
+.pnc-panel select, .pnc-panel textarea { width: 100%; max-width: 650px; }
+.pnc-panel textarea { font-family: monospace; font-size: 12px; line-height: 1.5; padding: 8px; resize: vertical; }
+.pnc-panel .info { padding: 12px 16px; line-height: 1.6; }
+.pnc-help { font-size: 11px; color: #60686b; line-height: 1.6; }
+.pnc-file-label { display: block; margin-bottom: 6px; }
+.pnc-panel button { cursor: pointer; padding: 5px 10px; }
+.pnc-panel .submit-button { margin-top: 8px; margin-bottom: 16px; }
+.pnc-advanced { margin: 18px 0; padding: 10px; border: 1px solid #ddd; border-radius: 3px; }
+.pnc-advanced summary { cursor: pointer; color: #60686b; }
+.pnc-advanced textarea { max-width: none; margin-top: 6px; }
+.pnc-table-scroll { overflow-x: auto; margin-bottom: 20px; }
+.pnc-panel table.res { font-size: 11px; min-width: 500px; }
+.pnc-panel table.res td { padding: 9px 5px; }
+.pnc-panel table.res th { font-weight: normal; }
+.pnc-result-ok { color: #285b31; background: #e6f2e7; border: 1px solid #a9cdae; padding: 12px; }
+.pnc-result-error { color: #9c2323; background: #fff0f0; border: 1px solid #dfb1b1; padding: 12px; }
+.pnc-panel section { margin-top: 16px; }
+@media (max-width: 850px) {
+    .pnc-page { width: 92%; }
+    .pnc-page .left-menu { float: none; width: 100%; }
+    .pnc-page .left-menu ul { display: flex; flex-wrap: wrap; margin-bottom: 15px; }
+    .pnc-page .op16-content { margin-left: 0; padding-left: 0; border-left: 0; }
+    .pnc-panel table.userInput td { display: block; width: 100% !important; text-align: left !important; }
+}

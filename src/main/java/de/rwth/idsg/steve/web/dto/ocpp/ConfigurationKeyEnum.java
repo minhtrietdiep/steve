@@ -39,6 +39,13 @@ import static de.rwth.idsg.steve.web.dto.ocpp.ConfigurationKeyReadWriteEnum.W;
  */
 public enum ConfigurationKeyEnum {
 
+    // OCA ISO 15118 Plug & Charge application note v1.0, section 9.
+    ISO15118PnCEnabled("boolean", RW, newHashSet(V_16)),
+    CentralContractValidationAllowed("boolean", RW, newHashSet(V_16)),
+    CertSigningWaitMinimum("seconds", RW, newHashSet(V_16)),
+    CertSigningRepeatTimes("integer", RW, newHashSet(V_16)),
+    ContractValidationOffline("boolean", RW, newHashSet(V_16)),
+
     // -------------------------------------------------------------------------
     // From OCPP 1.2
     // -------------------------------------------------------------------------

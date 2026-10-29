@@ -100,6 +100,7 @@ public class CentralSystemService16_Service {
     private final TaskScheduler taskScheduler;
     private final CentralSystemService16_ServiceValidator serviceValidator;
     private final ReservationRepository reservationRepository;
+    private final de.rwth.idsg.steve.service.pnc.PncService pncService;
 
     public BootNotificationResponse bootNotification(BootNotificationRequest parameters, String chargeBoxIdentity,
                                                      OcppProtocol ocppProtocol) {
@@ -317,6 +318,9 @@ public class CentralSystemService16_Service {
      * Dummy implementation. This is new in OCPP 1.5. It must be vendor-specific.
      */
     public DataTransferResponse dataTransfer(DataTransferRequest parameters, String chargeBoxIdentity) {
+        if (de.rwth.idsg.steve.service.pnc.PncProtocol.VENDOR.equals(parameters.getVendorId())) {
+            return pncService.handle(parameters, chargeBoxIdentity);
+        }
         log.warn("Cannot process DataTransfer from '{}'. Operation is not implemented. Rejecting DataTransfer={}", chargeBoxIdentity, parameters);
 
         // OCPP requires a status to be set. Since this is a dummy impl, set it to "Accepted".

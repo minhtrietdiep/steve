@@ -68,6 +68,7 @@
                             <li><a href="${ctxPath}/manager/events/status">STATUS EVENTS</a></li>
                             <li><a href="${ctxPath}/manager/certificates/installed">INSTALLED CERTIFICATES</a></li>
                             <li><a href="${ctxPath}/manager/certificates/signed">SIGNED CERTIFICATES</a></li>
+                            <li><a href="${ctxPath}/manager/pnc">PLUG &amp; CHARGE LAB</a></li>
                         </ul>
                     </li>
                     <li><a>OPERATIONS &raquo;</a>

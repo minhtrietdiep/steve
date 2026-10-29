@@ -52,6 +52,12 @@ SteVe has a complete implementation of [OCPP 1.6 Security Whitepaper Edition 3](
 See [dedicated Wiki page](https://github.com/steve-community/steve/wiki/OCPP-1.6J-Security-Configuration) for detailed configuration guide.
 
 
+### ISO 15118 Plug & Charge over OCPP 1.6J
+
+This branch adds DataTransfer-wrapped Plug & Charge certificate operations
+based on the OCA application note v1.0. See the [PnC configuration and operation guide](docs/ISO15118-PNC.md)
+for supported messages, local issuer configuration, management forms and limitations.
+
 ### System Requirements
 
 SteVe requires 
